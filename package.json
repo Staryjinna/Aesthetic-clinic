@@ -1,0 +1,25 @@
+{
+  "name": "clinic-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:all": "NEXT_PUBLIC_BRAND=adyar-hydra next build && NEXT_PUBLIC_BRAND=eternal-radiance next build",
+    "start": "next start",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.1",
+    "framer-motion": "^14.0.0",
+    "next": "^16.3.8",
+    "postcss": "^8.5.28",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^7.0.2"
+  }
+}
