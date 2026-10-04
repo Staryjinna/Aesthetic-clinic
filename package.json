@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:all": "NEXT_PUBLIC_BRAND=adyar-hydra next build && NEXT_PUBLIC_BRAND=eternal-radiance next build",
+    "build:all": "node scripts/build-all.mjs",
+    "new-brand": "node scripts/new-brand.mjs",
     "start": "next start",
     "lint": "tsc --noEmit"
   },

@@ -1,17 +1,16 @@
 import type { BrandConfig, Treatment, TreatmentCategory } from "@/brands/types";
-import adyarHydra from "@/brands/adyar-hydra";
-import eternalRadiance from "@/brands/eternal-radiance";
 import { withStock } from "./stock";
 
-/** Register new brands here. */
-const BRANDS: Record<string, BrandConfig> = {
-  "adyar-hydra": adyarHydra,
-  "eternal-radiance": eternalRadiance,
-};
-
+/** Brands are auto-discovered: any brands/<id>.ts is selectable via NEXT_PUBLIC_BRAND=<id>. No registration needed. */
+const DEFAULT_BRAND = "starter";
 const requested = process.env.NEXT_PUBLIC_BRAND?.trim();
-export const BRAND_ID = requested && BRANDS[requested] ? requested : "adyar-hydra";
-export const brand: BrandConfig = withStock(BRANDS[BRAND_ID]);
+const load = (id: string): BrandConfig | undefined => {
+  if (!/^[a-z0-9-]+$/.test(id) || id === "types") return undefined;
+  try { return require(`@/brands/${id}`).default; } catch { return undefined; }
+};
+const selected = requested ? load(requested) : undefined;
+export const BRAND_ID = selected ? requested! : DEFAULT_BRAND;
+export const brand: BrandConfig = withStock(selected ?? load(DEFAULT_BRAND)!);
 
 export const allTreatments = (): (Treatment & { category: TreatmentCategory })[] =>
   brand.categories.flatMap((c) => c.treatments.map((t) => ({ ...t, category: c })));

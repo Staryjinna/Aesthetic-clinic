@@ -2,19 +2,42 @@
 
 One Next.js (App Router, TypeScript, Tailwind, Framer Motion available) codebase that builds a different clinic site per brand.
 
-## Brands
+## Use this repo as a base for a new clinic
 
-| Brand id | File | Status |
-|---|---|---|
-| `adyar-hydra` (default) | `brands/adyar-hydra.ts` | placeholder content |
-| `eternal-radiance` | `brands/eternal-radiance.ts` | real home-page copy, reviews and old URLs; see placeholders below |
-
-The brand is picked at **build time** by one variable, `NEXT_PUBLIC_BRAND` (unset or unknown means `adyar-hydra`).
+`brands/starter.ts` is the neutral base. Everything a new client needs to change is in the **SETTINGS block** at the top of one brand file.
 
 ```bash
 npm install
+npm run new-brand -- my-clinic "My Clinic"     # creates brands/my-clinic.ts, public/brands/my-clinic/, content/my-clinic/blog/
+NEXT_PUBLIC_BRAND=my-clinic npm run dev
+```
+
+No registration step: any `brands/<id>.ts` is picked up by `NEXT_PUBLIC_BRAND=<id>` (default `starter`). In the brand file's SETTINGS block:
+
+| Change | Where |
+|---|---|
+| Brand name, tagline, city, site URL | `NAME`, `TAGLINE`, `CITY`, `SITE_URL` |
+| Logo, favicon, share image, emblem | drop files in `public/brands/<id>/`, set `LOGO`, `FAVICON`, `OG_IMAGE`, `EMBLEM` |
+| Colours and fonts | `COLORS`, `FONTS` |
+| Phone, WhatsApp, email, address, map, hours, social links | `CONTACT` |
+| Instagram reels | `REELS` (paste each reel URL) |
+| Hero, doctor and gallery images | `HERO_IMAGE`, `DOCTOR_IMAGE`, `GALLERY` (paths into `public/brands/<id>/`) |
+| Treatments, doctors, team, reviews, FAQs, SEO, redirects | the rest of the file |
+| Blog | Markdown files in `content/<id>/blog/` |
+
+Search the file for `PLACEHOLDER` to find what still needs real client content. Keep `brands/starter.ts` untouched so it stays a clean base.
+
+## Brands in this repo
+
+| Brand id | File | Status |
+|---|---|---|
+| `starter` (default) | `brands/starter.ts` | neutral base to copy |
+| `adyar-hydra` | `brands/adyar-hydra.ts` | placeholder content |
+| `eternal-radiance` | `brands/eternal-radiance.ts` | real home-page copy, reviews and old URLs; see placeholders below |
+
+```bash
 NEXT_PUBLIC_BRAND=eternal-radiance npm run dev
-npm run build:all        # builds both brands
+npm run build:all        # builds every brand in brands/
 ```
 
 ## Pages
@@ -23,11 +46,10 @@ Home, Treatments hub, `/treatments/[slug]` (static), About, Gallery (category fi
 
 ## Add or edit a brand
 
-1. Copy `brands/eternal-radiance.ts` to `brands/<id>.ts` and edit. The shape is `BrandConfig` in `brands/types.ts`.
-2. Register it in `lib/brand.ts` (`BRANDS`) and in `next.config.ts` (`BRANDS`, used for redirects).
-3. Add brand assets in `public/brands/<id>/` (logo, favicon, hero, doctor, team, before/after). Any image slot with a `src` wins over stock photos.
-4. Add blog posts as Markdown in `content/<id>/blog/*.md` (front matter: `title`, `date`, `excerpt`, `category`, `tags`, `featured`, `image`).
-5. If you want a font not listed in `FontKey`, add it in `lib/fonts.ts` and `brands/types.ts`.
+1. Run `npm run new-brand -- <id> "Name"` (or copy `brands/starter.ts`). The shape is `BrandConfig` in `brands/types.ts`. Brands are auto-discovered, no registration.
+2. Add brand assets in `public/brands/<id>/` (logo, favicon, hero, doctor, team, before/after). Any image slot with a `src` wins over stock photos.
+3. Add blog posts as Markdown in `content/<id>/blog/*.md` (front matter: `title`, `date`, `excerpt`, `category`, `tags`, `featured`, `image`).
+4. If you want a font not listed in `FontKey`, add it in `lib/fonts.ts` and `brands/types.ts`.
 
 ## Images
 
