@@ -31,11 +31,9 @@ Home, Treatments hub, `/treatments/[slug]` (static), About, Gallery (category fi
 
 ## Images
 
-No stock or AI imagery is used. Every photo comes from the brand's own files in `public/brands/<id>/` and is wired through the brand config (`hero.image`, `gallery`, doctor/team/treatment `image`, `beforeAfter`). A slot with no `src` renders nothing, so the layout stays clean until real photos arrive.
+Brand-owned photos live in `public/brands/<id>/` and are wired through the brand config (`hero.image`, `gallery`, doctor/team `image`, `beforeAfter`). Eternal Radiance has two real photos: `clinic-reception.jpg` (home hero, About) and `doctor.jpg` (Dr. Sivapriya), both taken from the clinic's Google Maps listing: confirm the clinic holds the rights or replace with the original files.
 
-- Eternal Radiance currently has one real photo: `clinic-reception.jpg` (from the clinic's Google Maps photo link), used as the hero and on About.
-- The **Gallery** nav link appears once `gallery` has 3 or more photos (or real before/after pairs exist).
-- Never use stock or AI images as before/after results.
+Treatment and category cards use **temporary free stock photos** (`public/stock/`, Unsplash/Pexels licences) via `lib/stock.ts`, which only fills slots that have no `src`. They are generic scenes: set `image.src` on a treatment or category to override, and replace them with real photos before launch. Doctor, team, gallery and before/after slots never use stock; a slot without a photo renders nothing. The **Gallery** nav link appears once `gallery` has 3 or more real photos. Never use stock or AI images as before/after results.
 
 ## Instagram video reviews
 
@@ -45,7 +43,7 @@ Add entries to `videoReviews` in the brand file:
 videoReviews: [{ name: "Patient name", instagramUrl: "https://www.instagram.com/reel/XXXXXXXX/", treatment: "Microneedling" }],
 ```
 
-The Instagram embed loads only when a visitor presses Play.
+The card shows Instagram's own preview (cover image and details) but never plays in the page: a tap opens the reel on Instagram.
 
 ## Deploy on Vercel (one repo, two projects)
 

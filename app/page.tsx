@@ -9,15 +9,9 @@ import Testimonials from "@/components/Testimonials";
 import VideoReviews from "@/components/VideoReviews";
 import Faq from "@/components/Faq";
 import BookingCta from "@/components/BookingCta";
+import HowWeWork from "@/components/HowWeWork";
 
 export const metadata = { ...pageMeta(brand.seo.title, brand.seo.description, "/"), title: { absolute: brand.seo.title } };
-
-const steps = [
-  ["Consult", "Share your concerns and history. Your doctor examines your skin, hair or area of concern."],
-  ["Plan", "Options, expectations and aftercare are explained, including options that need no procedure."],
-  ["Treat", "Your treatment is carried out with attention to comfort and safety."],
-  ["Follow up", "Progress is reviewed and the plan adjusted as needed."],
-];
 
 export default function HomePage() {
   const featured = brand.categories.flatMap((c) => c.treatments.slice(0, 1)).slice(0, 3);
@@ -27,18 +21,16 @@ export default function HomePage() {
       <JsonLd data={faqSchema(brand.homeFaqs)} />
       <section className="relative isolate overflow-hidden bg-ink">
         <Img slot={brand.hero.image} priority aspect="" sizes="100vw" className="absolute inset-0 -z-10" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/10 max-sm:from-black/70 max-sm:via-black/55 max-sm:to-black/40" aria-hidden />
-        <div className="container-x flex min-h-[clamp(34rem,88vh,52rem)] flex-col justify-center py-24 text-white">
-          {brand.hero.eyebrow && <p className="eyebrow !text-white/80">{brand.hero.eyebrow}</p>}
-          <h1 className="mt-4 max-w-2xl text-[clamp(2.4rem,5.6vw,4.5rem)] !text-white">{brand.hero.headline ?? brand.tagline}</h1>
-          <p className="mt-6 max-w-lg text-lg text-white/85">{brand.hero.text ?? brand.intro.text[0]}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="btn bg-white text-ink hover:bg-surface">{brand.hero.cta}</a>
-            <Link href="/treatments" className="btn border border-white/60 text-white hover:bg-white/10">Explore treatments</Link>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/55 via-black/15 to-transparent max-sm:from-black/40 max-sm:via-black/25 max-sm:to-black/20" aria-hidden />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-black/30 to-transparent" aria-hidden />
+        <div className="container-x flex min-h-[clamp(32rem,86vh,50rem)] flex-col justify-center py-24 text-white [text-shadow:0_1px_2px_rgba(0,0,0,.35),0_4px_24px_rgba(0,0,0,.45)]">
+          {brand.hero.eyebrow && <p className="eyebrow !text-white">{brand.hero.eyebrow}</p>}
+          <h1 className="mt-4 max-w-2xl text-[clamp(2.3rem,5.4vw,4.4rem)] !text-white">{brand.hero.headline ?? brand.tagline}</h1>
+          <p className="mt-6 max-w-lg text-lg text-white">{brand.hero.text ?? brand.intro.text[0]}</p>
+          <div className="mt-8 flex flex-col gap-3 [text-shadow:none] sm:flex-row">
+            <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="btn bg-white text-ink shadow-lg hover:bg-surface">{brand.hero.cta}</a>
+            <Link href="/treatments" className="btn border border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/25">Explore treatments</Link>
           </div>
-          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-white/80">
-            {["Doctor-led care", "Consultation first", "Personalised plans"].map((t) => <li key={t} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/80" aria-hidden />{t}</li>)}
-          </ul>
         </div>
       </section>
 
@@ -57,14 +49,13 @@ export default function HomePage() {
             <div><p className="eyebrow">Treatments</p><h2 className="h-display mt-2">Care, by concern</h2></div>
             <Link href="/treatments" className="text-sm font-medium text-primary">View all treatments →</Link>
           </div>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+          <ul className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
             {brand.categories.map((c) => (
               <li key={c.slug}>
-                <Link href={`/treatments#${c.slug}`} className="group block h-full rounded-2xl border border-line p-6 transition-colors hover:border-ink">
-                  <h3 className="text-lg">{c.title}</h3>
-                  <p className="mt-2 text-sm text-muted">{c.blurb}</p>
-                  <p className="mt-4 text-sm text-muted">{c.treatments.length} {c.treatments.length === 1 ? "treatment" : "treatments"}</p>
-                  <span className="mt-2 inline-block text-sm font-medium text-primary">Explore →</span>
+                <Link href={`/treatments#${c.slug}`} className="group block">
+                  <Img slot={c.image} aspect="aspect-[4/5]" sizes="(min-width:1024px) 22vw, 45vw" className="rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]" />
+                  <h3 className="mt-3 text-base sm:text-lg">{c.title}</h3>
+                  <p className="mt-1 hidden text-sm text-muted sm:block">{c.blurb}</p>
                 </Link>
               </li>
             ))}
@@ -72,20 +63,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-surface">
-        <div className="container-x">
-          <h2 className="h-display text-center">How we work</h2>
-          <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map(([t, d], i) => (
-              <li key={t} className="rounded-2xl border border-line bg-paper p-6">
-                <span className="text-sm font-medium text-accent">0{i + 1}</span>
-                <h3 className="mt-2 text-lg">{t}</h3>
-                <p className="mt-2 text-sm text-muted">{d}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <HowWeWork />
 
       <section className="section">
         <div className="container-x">

@@ -290,7 +290,7 @@ const brand: BrandConfig = {
   // Name + coordinates taken from the Google Maps link supplied by the client (viewport of the clinic photo).
   // Confirm the pin, then replace with the exact "Share > Embed a map" URL from the listing.
   mapEmbedUrl: "https://www.google.com/maps?q=Eternal+Radiance+Skin,+Hair+and+Aesthetics&ll=13.065191,80.2478704&z=16&output=embed",
-  geo: { lat: 13.065191, lng: 80.2478704 }, // from the Maps link; confirm
+  geo: { lat: 13.065191, lng: 80.2478704 }, // from the Google Maps listing "Eternal Radiance Skin, Hair and Aesthetics" (cid 3082220410954864079)
   hours: [
     { days: "Monday – Saturday", hours: "10:00 am – 7:00 pm" }, // PLACEHOLDER: unconfirmed
     { days: "Sunday", hours: "By appointment" }, // PLACEHOLDER: unconfirmed
@@ -310,7 +310,7 @@ const brand: BrandConfig = {
         "[PLACEHOLDER] Add training, qualifications, years of practice and medical registration details supplied by Dr. Sivapriya.",
       ],
       quote: "Treatment should begin with a consultation, not a predetermined procedure.", // paraphrased from the site; confirm with the doctor
-      image: img("Dr. Sivapriya"),
+      image: img("Dr. Sivapriya at the Eternal Radiance clinic", "/brands/eternal-radiance/doctor.jpg"), // supplied by the client via Google Maps listing photo
       specialties: ["Aesthetic medicine", "Hair restoration", "Injectables"],
     },
   ],
