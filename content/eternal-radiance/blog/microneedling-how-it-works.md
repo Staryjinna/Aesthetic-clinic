@@ -4,7 +4,6 @@ date: "2026-08-28"
 excerpt: "Microneedling creates tiny controlled channels in the skin. Here is the basic idea, and the questions to settle first."
 category: "Skin"
 tags: ["microneedling", "texture", "acne marks"]
-image: "/stock/facial-brush.jpg"
 ---
 Microneedling uses fine needles to make very small, controlled channels in the top layers of skin. The skin responds by starting its natural repair process.
 

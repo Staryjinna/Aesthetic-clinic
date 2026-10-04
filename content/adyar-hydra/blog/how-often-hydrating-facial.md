@@ -5,7 +5,6 @@ excerpt: "There is no single schedule. Skin type, season and goals all play a pa
 category: "Skin"
 tags: ["facials", "hydration", "skin care"]
 featured: true
-image: "/stock/cleansing-mask.jpg"
 ---
 Hydrating facials cleanse, exfoliate and add moisture in a single visit. How often suits you depends on your skin and your goals.
 

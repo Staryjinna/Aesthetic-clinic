@@ -4,7 +4,7 @@ import { getPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const fixed = ["/", "/treatments", "/about", "/gallery", "/reviews", "/blog", "/community", "/contact", "/privacy-policy", "/terms-conditions"];
+  const fixed = ["/", "/treatments", "/about", ...(brand.gallery.length >= 3 ? ["/gallery"] : []), "/reviews", "/blog", "/community", "/contact", "/privacy-policy", "/terms-conditions"];
   return [
     ...fixed.map((p) => ({ url: absUrl(p), lastModified: now, changeFrequency: "monthly" as const, priority: p === "/" ? 1 : 0.7 })),
     ...allTreatments().map((t) => ({ url: absUrl(`/treatments/${t.slug}`), lastModified: now, priority: 0.8 })),

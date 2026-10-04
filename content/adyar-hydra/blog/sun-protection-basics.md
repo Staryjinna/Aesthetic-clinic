@@ -4,7 +4,6 @@ date: "2026-08-20"
 excerpt: "Darker skin tones still need daily sun protection. Here are the basics."
 category: "Skin"
 tags: ["sunscreen", "pigmentation", "prevention"]
-image: "/stock/products-flatlay.jpg"
 ---
 Skin with more natural pigment burns less easily, but it is still affected by sun. Ultraviolet exposure can deepen pigmentation and contribute to uneven tone over time.
 

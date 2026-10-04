@@ -19,7 +19,7 @@ npm run build:all        # builds both brands
 
 ## Pages
 
-Home, Treatments hub, `/treatments/[slug]` (static), About, Gallery (category filter), Reviews (Instagram video reviews + written reviews), Blog (featured post, search, category chips, tags, pagination, `/blog/[slug]`), Community, Contact (WhatsApp pre-filled form, click-to-call, map, hours), Privacy Policy and Terms (drafts), `sitemap.xml`, `robots.txt`, Open Graph image, JSON-LD (MedicalClinic, FAQPage, Physician, BlogPosting), 301 redirects from each brand's `redirects` map (`next.config.ts`).
+Home, Treatments hub, `/treatments/[slug]` (static), About, Gallery (category filter; hidden from nav until 3+ photos), Reviews (Instagram video reviews + written reviews), Blog (featured post, search, category chips, tags, pagination, `/blog/[slug]`), Community, Contact (WhatsApp pre-filled form, click-to-call, map, hours), Privacy Policy and Terms (drafts), `sitemap.xml`, `robots.txt`, Open Graph image, JSON-LD (MedicalClinic, FAQPage, Physician, BlogPosting), 301 redirects from each brand's `redirects` map (`next.config.ts`).
 
 ## Add or edit a brand
 
@@ -31,7 +31,11 @@ Home, Treatments hub, `/treatments/[slug]` (static), About, Gallery (category fi
 
 ## Images
 
-Photos in `public/stock/` are free stock images (Unsplash / Pexels licences, no attribution required) used until brand photos exist. `lib/stock.ts` fills any empty image slot automatically. They are generic scenes: never present them as patients, results or staff. **Do not use AI-generated or stock images as before/after results.** The Gallery only shows before/after sliders when real patient photos are supplied in `beforeAfter`.
+No stock or AI imagery is used. Every photo comes from the brand's own files in `public/brands/<id>/` and is wired through the brand config (`hero.image`, `gallery`, doctor/team/treatment `image`, `beforeAfter`). A slot with no `src` renders nothing, so the layout stays clean until real photos arrive.
+
+- Eternal Radiance currently has one real photo: `clinic-reception.jpg` (from the clinic's Google Maps photo link), used as the hero and on About.
+- The **Gallery** nav link appears once `gallery` has 3 or more photos (or real before/after pairs exist).
+- Never use stock or AI images as before/after results.
 
 ## Instagram video reviews
 
@@ -55,7 +59,7 @@ Changing the value needs a redeploy. Each brand's `siteUrl` drives canonical URL
 ## Remaining placeholders
 
 **Eternal Radiance** (search `PLACEHOLDER` in `brands/eternal-radiance.ts`):
-- Logo (`EternalRadianceLogo.png` could not be downloaded; a text wordmark is used) and brand photos (stock photos used)
+- Logo (`EternalRadianceLogo.png` could not be downloaded; a text wordmark is used) and more clinic photos (only the reception photo exists; treatment, doctor, team and gallery photos are missing)
 - Phone, WhatsApp number (booking buttons use a dummy number until set), email, street address and PIN, geo coordinates, opening hours, exact Google Maps embed URL
 - Dr. Sivapriya: qualifications, registration number, bio, photo; team members; clinic timeline
 - Google rating and review count (rating row hidden while count is 0)

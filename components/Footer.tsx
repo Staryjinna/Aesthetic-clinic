@@ -20,7 +20,7 @@ export default function Footer() {
         <nav aria-label="Footer">
           <h2 className="eyebrow mb-4 font-sans">Explore</h2>
           <ul className={col}>
-            {[["/about", "About"], ["/gallery", "Gallery"], ["/reviews", "Reviews"], ["/blog", "Blog"], ["/community", "Community"], ["/contact", "Contact"]].map(([h, l]) => <li key={h}><Link href={h} className="hover:text-primary">{l}</Link></li>)}
+            {[["/about", "About"], ...(brand.gallery.length >= 3 ? [["/gallery", "Gallery"]] : []), ["/reviews", "Reviews"], ["/blog", "Blog"], ["/community", "Community"], ["/contact", "Contact"]].map(([h, l]) => <li key={h}><Link href={h} className="hover:text-primary">{l}</Link></li>)}
           </ul>
         </nav>
         <nav aria-label="Treatments">

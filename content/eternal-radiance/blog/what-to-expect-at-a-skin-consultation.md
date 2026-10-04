@@ -5,7 +5,6 @@ excerpt: "A consultation is where a treatment plan starts. Here is what usually 
 category: "Skin"
 tags: ["consultation", "skin health", "planning"]
 featured: true
-image: "/stock/facial-mask.jpg"
 ---
 A good aesthetic plan starts with a conversation, not a procedure. A consultation gives you and your doctor time to understand your concerns before any treatment is suggested.
 

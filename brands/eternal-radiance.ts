@@ -287,9 +287,10 @@ const brand: BrandConfig = {
   whatsapp: "910000000000", // PLACEHOLDER: booking buttons point here until replaced
   email: "hello@eternalradiance.in", // PLACEHOLDER: unconfirmed
   address: { lines: ["Clinic address to be confirmed"], city: "Chennai", state: "Tamil Nadu", postalCode: "600000", country: "IN" }, // PLACEHOLDER street and PIN
-  // Searches by the Google listing name; replace with the exact "Share > Embed a map" URL from the listing.
-  mapEmbedUrl: "https://www.google.com/maps?q=Eternal+Radiance+Skin,+Hair+and+Aesthetics+Chennai&output=embed",
-  // geo: PLACEHOLDER (add { lat, lng } from the Google listing)
+  // Name + coordinates taken from the Google Maps link supplied by the client (viewport of the clinic photo).
+  // Confirm the pin, then replace with the exact "Share > Embed a map" URL from the listing.
+  mapEmbedUrl: "https://www.google.com/maps?q=Eternal+Radiance+Skin,+Hair+and+Aesthetics&ll=13.065191,80.2478704&z=16&output=embed",
+  geo: { lat: 13.065191, lng: 80.2478704 }, // from the Maps link; confirm
   hours: [
     { days: "Monday – Saturday", hours: "10:00 am – 7:00 pm" }, // PLACEHOLDER: unconfirmed
     { days: "Sunday", hours: "By appointment" }, // PLACEHOLDER: unconfirmed
@@ -298,7 +299,7 @@ const brand: BrandConfig = {
     instagram: "https://www.instagram.com/eternalradiance_clinic/",
     facebook: "https://www.facebook.com/people/Eternal-Radiance-Clinic/61560765166350/",
   },
-  hero: { eyebrow: "Aesthetic dermatology & wellness · Chennai", headline: "Skin, hair and wellness care, led by a doctor", text: "A personalised plan for every patient, beginning with a consultation rather than a predetermined procedure.", cta: "Book Consultation", image: img("Clinic hero") },
+  hero: { eyebrow: "Aesthetic dermatology & wellness · Chennai", headline: "Skin, hair and aesthetic care, led by a doctor", text: "A personalised plan for every patient, beginning with a consultation rather than a predetermined procedure.", cta: "Book Consultation", image: img("Reception at Eternal Radiance clinic, Chennai", "/brands/eternal-radiance/clinic-reception.jpg") },
   doctors: [
     {
       name: "Dr. Sivapriya",
@@ -352,6 +353,10 @@ const brand: BrandConfig = {
   ],
   videoReviews: [], // PLACEHOLDER: add { name, instagramUrl, treatment } for each Instagram reel
   googleRating: { score: 0, count: 0 }, // PLACEHOLDER: rating and count from the Google listing (hidden while count is 0)
+  gallery: [
+    // Source: Google Maps contributor photo of the clinic reception (confirm the clinic holds the rights / replace with the original file).
+    { src: "/brands/eternal-radiance/clinic-reception.jpg", alt: "Reception at Eternal Radiance clinic, Chennai" },
+  ],
   beforeAfter: [
     { id: "ba-1", title: "Skin texture", categorySlug: "skin", treatment: "SkinPen Precision Microneedling", before: img("Before"), after: img("After"), note: disclaimer },
     { id: "ba-2", title: "Skin tone", categorySlug: "skin", treatment: "Q-Switch Laser Skin Toning", before: img("Before"), after: img("After"), note: disclaimer },

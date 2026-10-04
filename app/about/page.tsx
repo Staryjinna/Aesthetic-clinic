@@ -23,9 +23,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {brand.gallery[0] && (
+        <section className="pb-16 sm:pb-24"><div className="container-x"><Img slot={brand.gallery[0]} aspect="aspect-[16/9]" sizes="(min-width:1152px) 1100px, 100vw" className="rounded-3xl" /></div></section>
+      )}
+
       {brand.doctors.map((d) => (
         <section key={d.name} className="section bg-surface">
-          <div className="container-x grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className={`container-x grid items-start gap-10 ${d.image.src ? "lg:grid-cols-[0.8fr_1.2fr]" : ""}`}>
             <Img slot={d.image} aspect="aspect-[4/5]" className="rounded-3xl" />
             <div>
               <p className="eyebrow">Our doctor</p>

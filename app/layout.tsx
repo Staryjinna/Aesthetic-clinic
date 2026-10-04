@@ -35,13 +35,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "--font-body": bodyFont.style.fontFamily,
   } as React.CSSProperties;
   const wa = whatsappLink(defaultWhatsappMessage);
+  const showGallery = brand.gallery.length >= 3 || brand.beforeAfter.some((p) => p.before.src && p.after.src);
 
   return (
     <html lang="en-IN" style={vars} className={`${displayFont.className} ${bodyFont.className}`}>
       <body>
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded focus:bg-paper focus:px-4 focus:py-2">Skip to content</a>
         <JsonLd data={clinicSchema()} />
-        <Header phone={brand.phone} phoneTel={brand.phoneTel} categories={brand.categories.map((c) => ({ slug: c.slug, title: c.title }))} showPhone={!phoneIsPlaceholder} />
+        <Header phone={brand.phone} phoneTel={brand.phoneTel} categories={brand.categories.map((c) => ({ slug: c.slug, title: c.title }))} showPhone={!phoneIsPlaceholder} hideHrefs={showGallery ? [] : ["/gallery"]} />
         <main id="main">{children}</main>
         <Footer />
         <WhatsAppFloat href={wa} name={brand.name} />

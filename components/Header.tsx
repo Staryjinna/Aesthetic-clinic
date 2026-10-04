@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { NAV } from "@/lib/nav";
 import Wordmark from "./Wordmark";
 
-interface Props { phone: string; phoneTel: string; categories: { slug: string; title: string }[]; showPhone: boolean }
+interface Props { phone: string; phoneTel: string; categories: { slug: string; title: string }[]; showPhone: boolean; hideHrefs: string[] }
 
-export default function Header({ phone, phoneTel, categories, showPhone }: Props) {
+export default function Header({ phone, phoneTel, categories, showPhone, hideHrefs }: Props) {
+  const nav = NAV.filter((n) => !hideHrefs.includes(n.href));
   const [open, setOpen] = useState(false);
   const [sub, setSub] = useState(false);
   const btn = useRef<HTMLButtonElement>(null);
@@ -29,7 +30,7 @@ export default function Header({ phone, phoneTel, categories, showPhone }: Props
         <Link href="/" aria-label="Home" className="shrink-0"><Wordmark /></Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
-          {NAV.map((n) =>
+          {nav.map((n) =>
             "dropdown" in n ? (
               <div key={n.href} className="relative" onMouseEnter={() => setSub(true)} onMouseLeave={() => setSub(false)}>
                 <button aria-expanded={sub} aria-haspopup="true" onClick={() => setSub((s) => !s)} className={`${link(n.href)} inline-flex items-center gap-1`}>
@@ -71,7 +72,7 @@ export default function Header({ phone, phoneTel, categories, showPhone }: Props
         </div>
         <nav aria-label="Mobile" className="container-x pb-12 pt-4">
           <ul className="divide-y divide-line border-y border-line">
-            {NAV.map((n) => (
+            {nav.map((n) => (
               <li key={n.href}>
                 <Link href={n.href} className="block py-4 text-lg">{n.label}</Link>
                 {"dropdown" in n && (

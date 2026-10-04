@@ -39,7 +39,7 @@ export default function HomePage() {
               {["Doctor-led care", "Consultation first", "Personalised plans"].map((t) => <li key={t} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />{t}</li>)}
             </ul>
           </div>
-          <Img slot={brand.hero.image} priority aspect="aspect-[4/5]" sizes="(min-width:1024px) 45vw, 100vw" className="rounded-3xl" />
+          <Img slot={brand.hero.image} priority aspect="aspect-[4/3]" sizes="(min-width:1024px) 50vw, 100vw" className="rounded-3xl" />
         </div>
       </section>
 
@@ -58,13 +58,14 @@ export default function HomePage() {
             <div><p className="eyebrow">Treatments</p><h2 className="h-display mt-2">Care, by concern</h2></div>
             <Link href="/treatments" className="text-sm font-medium text-primary">View all treatments →</Link>
           </div>
-          <ul className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {brand.categories.map((c) => (
               <li key={c.slug}>
-                <Link href={`/treatments#${c.slug}`} className="group block">
-                  <Img slot={c.image} aspect="aspect-[4/5]" sizes="(min-width:1024px) 22vw, 45vw" className="rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]" />
-                  <h3 className="mt-3 text-base sm:text-lg">{c.title}</h3>
-                  <p className="mt-1 hidden text-sm text-muted sm:block">{c.blurb}</p>
+                <Link href={`/treatments#${c.slug}`} className="group block h-full rounded-2xl border border-line p-6 transition-colors hover:border-ink">
+                  <h3 className="text-lg">{c.title}</h3>
+                  <p className="mt-2 text-sm text-muted">{c.blurb}</p>
+                  <p className="mt-4 text-sm text-muted">{c.treatments.length} {c.treatments.length === 1 ? "treatment" : "treatments"}</p>
+                  <span className="mt-2 inline-block text-sm font-medium text-primary">Explore →</span>
                 </Link>
               </li>
             ))}
@@ -96,7 +97,7 @@ export default function HomePage() {
 
       {doctor && (
         <section className="section bg-surface">
-          <div className="container-x grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className={`container-x grid items-center gap-10 ${doctor.image.src ? "lg:grid-cols-[0.8fr_1.2fr]" : ""}`}>
             <Img slot={doctor.image} aspect="aspect-[4/5]" className="rounded-3xl" />
             <div>
               <p className="eyebrow">Meet the doctor</p>

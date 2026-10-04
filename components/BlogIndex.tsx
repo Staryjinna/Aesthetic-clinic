@@ -8,7 +8,8 @@ const PER_PAGE = 6;
 const fmt = (d: string) => new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
 
 function Cover({ src, alt }: { src?: string; alt: string }) {
-  return <div className="relative aspect-[16/10] bg-surface">{src && <Image src={src} alt={alt} fill sizes="(min-width:1024px) 30vw, 100vw" className="object-cover" />}</div>;
+  if (!src) return null;
+  return <div className="relative aspect-[16/10] bg-surface"><Image src={src} alt={alt} fill sizes="(min-width:1024px) 30vw, 100vw" className="object-cover" /></div>;
 }
 
 export default function BlogIndex({ posts }: { posts: PostMeta[] }) {
@@ -48,7 +49,7 @@ export default function BlogIndex({ posts }: { posts: PostMeta[] }) {
       </div>
 
       {featured && (
-        <Link href={`/blog/${featured.slug}`} className="card mt-10 grid overflow-hidden md:grid-cols-2">
+        <Link href={`/blog/${featured.slug}`} className={`card mt-10 grid overflow-hidden ${featured.image ? "md:grid-cols-2" : ""}`}>
           <Cover src={featured.image} alt="" />
           <div className="flex flex-col justify-center p-7 sm:p-10">
             <p className="eyebrow">Featured · {featured.category}</p>

@@ -333,6 +333,7 @@ const brand: BrandConfig = {
   ],
   videoReviews: [], // PLACEHOLDER: add { name, instagramUrl, treatment } for each Instagram reel
   googleRating: { score: 4.9, count: 0 }, // PLACEHOLDER — set real score & count
+  gallery: [], // PLACEHOLDER: add real clinic photos
   beforeAfter: [
     { id: "ba-1", title: "Skin texture", categorySlug: "skin-rejuvenation", treatment: "Microneedling", before: img("Before"), after: img("After"), note: commonDisclaimer },
     { id: "ba-2", title: "Skin tone", categorySlug: "facials-skin-glow", treatment: "Glass Skin Glow Programme", before: img("Before"), after: img("After"), note: commonDisclaimer },

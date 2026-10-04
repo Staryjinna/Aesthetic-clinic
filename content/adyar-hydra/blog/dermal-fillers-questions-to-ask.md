@@ -4,7 +4,6 @@ date: "2026-07-30"
 excerpt: "A short checklist to bring to a filler consultation."
 category: "Injectables"
 tags: ["fillers", "consultation", "safety"]
-image: "/stock/serum-dropper.jpg"
 ---
 Dermal fillers are injectable gels used to restore volume or soften lines. Before deciding, it helps to ask a few plain questions.
 

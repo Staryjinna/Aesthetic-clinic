@@ -125,6 +125,9 @@ export interface VideoReview {
   caption?: string;
 }
 
+/** Real photo for the Gallery page. `categorySlug` (optional) enables the category filter. */
+export interface GalleryPhoto { src: string; alt: string; categorySlug?: string }
+
 export interface HomeStat {
   value: string;
   label: string;
@@ -175,6 +178,8 @@ export interface BrandConfig {
   /** Instagram video reviews. Empty array shows a "watch on Instagram" prompt instead. */
   videoReviews: VideoReview[];
   googleRating: { score: number; count: number; url?: string };
+  /** Real clinic / treatment photos only (no stock). The Gallery nav link shows once there are 3 or more. */
+  gallery: GalleryPhoto[];
   beforeAfter: BeforeAfter[];
   stats: HomeStat[];
   homeFaqs: Faq[];

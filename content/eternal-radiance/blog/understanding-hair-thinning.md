@@ -4,7 +4,6 @@ date: "2026-08-10"
 excerpt: "Hair thinning has many possible causes. Identifying the cause helps decide what, if anything, to treat."
 category: "Hair"
 tags: ["hair loss", "assessment", "scalp"]
-image: "/stock/hair-long.jpg"
 ---
 Hair thinning is common and has many different causes. Treating it well starts with working out which cause applies.
 
