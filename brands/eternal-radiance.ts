@@ -2,8 +2,12 @@ import type { BrandConfig, Treatment, TreatmentCategory } from "./types";
 
 /* ------------------------------------------------------------------ *
  * ETERNAL RADIANCE — doctor-led aesthetic medicine & wellness, Chennai.
- * Treatment list and doctor name come from the client brief; descriptions
- * are neutral placeholders to be reviewed and approved by Dr. Sivapriya.
+ * SOURCE: https://eternalradiance.in/ (home page, fetched 2026-10). The live
+ * site's other pages, images and Google listing sat behind a bot challenge
+ * when this config was written, so anything that could not be read there is
+ * marked PLACEHOLDER below. Treatment descriptions are neutral, factual
+ * drafts to be reviewed and approved by Dr. Sivapriya before launch.
+ * Google Business listing name: "Eternal Radiance Skin, Hair and Aesthetics".
  * ------------------------------------------------------------------ */
 
 const img = (alt: string, src?: string) => ({ alt, src });
@@ -251,56 +255,60 @@ const brand: BrandConfig = {
   id: "eternal-radiance",
   name: "Eternal Radiance",
   shortName: "Eternal Radiance",
-  tagline: "Doctor-led aesthetic medicine & wellness",
+  tagline: "Aesthetic Dermatology & Wellness",
   intro: {
     eyebrow: "Welcome",
-    heading: "Aesthetic medicine, led by a doctor who listens",
+    heading: "A personalised approach to every treatment",
     text: [
-      "Eternal Radiance is a doctor-led aesthetic medicine and wellness clinic in Chennai, led by Dr. Sivapriya.",
-      "From skin and hair to injectables and wellness therapy, every plan begins with a consultation and an honest conversation about what is realistic.",
+      "Eternal Radiance is a doctor-led aesthetic medicine and wellness clinic in Chennai, bringing together medical expertise, personalised care and a natural approach to aesthetics.",
+      "Care begins with a consultation rather than a predetermined procedure. We take time to understand your concerns, expectations and lifestyle, then explain the process, what to expect and the ongoing care involved.",
     ],
   },
   wordmark: { line1: "ETERNAL", line2: "RADIANCE" },
-  // Replace with the real logo: save https://eternalradiance.in/wp-content/uploads/2025/04/EternalRadianceLogo.png
-  // as public/brands/eternal-radiance/logo.png and point this path to it.
+  // PLACEHOLDER: the real logo (https://eternalradiance.in/wp-content/uploads/2025/04/EternalRadianceLogo.png)
+  // could not be downloaded (bot challenge). Save it as public/brands/eternal-radiance/logo.png and point this path to it.
   logo: "/brands/eternal-radiance/logo.svg",
   favicon: "/brands/eternal-radiance/favicon.svg",
   palette: {
+    // Derived from the live site's own palette: copper #D0936B and cream #FDEDE3.
+    // The copper is darkened to #A0643A for accent text so it keeps 4.5:1 contrast on the page background.
     primary: "#8A5A4B",
-    accent: "#C49A6C",
+    accent: "#A0643A",
     background: "#FFFDFB",
-    surface: "#F8F1EC",
+    surface: "#FDEDE3",
     text: "#2D2422",
     muted: "#7A6A64",
     line: "#EADFD8",
   },
   fonts: { display: "cormorant", body: "jost" },
   siteUrl: "https://eternalradiance.in",
-  phone: "+91 00000 00000", // PLACEHOLDER — take from live site
-  phoneTel: "+910000000000",
-  whatsapp: "910000000000", // PLACEHOLDER
-  email: "hello@eternalradiance.in", // PLACEHOLDER — confirm
-  address: { lines: ["Clinic address to be confirmed"], city: "Chennai", state: "Tamil Nadu", postalCode: "600000", country: "IN" },
-  mapEmbedUrl: "https://www.google.com/maps?q=Eternal+Radiance+Clinic+Chennai&output=embed",
+  phone: "+91 00000 00000", // PLACEHOLDER: not on the home page; take from the Contact Us page / Google listing
+  phoneTel: "+910000000000", // PLACEHOLDER
+  whatsapp: "910000000000", // PLACEHOLDER: booking buttons point here until replaced
+  email: "hello@eternalradiance.in", // PLACEHOLDER: unconfirmed
+  address: { lines: ["Clinic address to be confirmed"], city: "Chennai", state: "Tamil Nadu", postalCode: "600000", country: "IN" }, // PLACEHOLDER street and PIN
+  // Searches by the Google listing name; replace with the exact "Share > Embed a map" URL from the listing.
+  mapEmbedUrl: "https://www.google.com/maps?q=Eternal+Radiance+Skin,+Hair+and+Aesthetics+Chennai&output=embed",
+  // geo: PLACEHOLDER (add { lat, lng } from the Google listing)
   hours: [
-    { days: "Monday – Saturday", hours: "10:00 am – 7:00 pm" }, // PLACEHOLDER
-    { days: "Sunday", hours: "By appointment" },
+    { days: "Monday – Saturday", hours: "10:00 am – 7:00 pm" }, // PLACEHOLDER: unconfirmed
+    { days: "Sunday", hours: "By appointment" }, // PLACEHOLDER: unconfirmed
   ],
   social: {
     instagram: "https://www.instagram.com/eternalradiance_clinic/",
     facebook: "https://www.facebook.com/people/Eternal-Radiance-Clinic/61560765166350/",
   },
-  hero: { eyebrow: "Aesthetic Medicine · Skin · Hair · Wellness", cta: "Book Consultation", image: img("Clinic hero") },
+  hero: { eyebrow: "Skin Health · Injectables · Hair Restoration · Wellness", cta: "Book Consultation", image: img("Clinic hero") },
   doctors: [
     {
       name: "Dr. Sivapriya",
       title: "Founder & Lead Aesthetic Physician",
-      credentials: "Qualifications to be confirmed",
+      credentials: "Qualifications to be confirmed", // PLACEHOLDER: add degrees and registration number
       bio: [
         "Dr. Sivapriya leads Eternal Radiance, a doctor-led clinic for aesthetic medicine and wellness in Chennai.",
-        "Add training, years of practice and registration details here.",
+        "[PLACEHOLDER] Add training, qualifications, years of practice and medical registration details supplied by Dr. Sivapriya.",
       ],
-      quote: "The best aesthetic work is the kind that looks like you, only well rested.",
+      quote: "Treatment should begin with a consultation, not a predetermined procedure.", // paraphrased from the site; confirm with the doctor
       image: img("Dr. Sivapriya"),
       specialties: ["Aesthetic medicine", "Hair restoration", "Injectables"],
     },
@@ -335,12 +343,14 @@ const brand: BrandConfig = {
     { title: "Clear communication", text: "Steps, aftercare and expectations explained up front." },
     { title: "Calm, private setting", text: "Unhurried appointments in a discreet clinic." },
   ],
+  // Real patient reviews shown on the live home page (excerpted). The site does not say they came from Google,
+  // so they are labelled as clinic-site reviews. Confirm consent/regulatory suitability before publishing.
   testimonials: [
-    { name: "Reviewer Name", text: "Placeholder review. Replace with real Google reviews.", rating: 5, treatment: "Skin Glow", when: "a month ago" },
-    { name: "Reviewer Name", text: "Placeholder review. Every step was explained clearly.", rating: 5, treatment: "Consultation", when: "2 months ago" },
-    { name: "Reviewer Name", text: "Placeholder review. A calm, professional clinic.", rating: 5, treatment: "Microneedling", when: "3 months ago" },
+    { name: "Sindhuja Hari", text: "Been coming to Eternal Radiance for almost 2 years now and honestly, it’s been such a game changer for me. Dr. Siva priya is the sweetest, explains everything, and actually listens. The whole vibe of the clinic is so nice and comforting that I actually look forward to my appointments now.", rating: 5 },
+    { name: "Gokila Kumar", text: "Dr. Sivapriya has been an absolute sweetheart. She understood my concerns really well, worked on my skin goals. She prioritizes holistic lifestyle management rather than tonnes of dermatology procedures. The staff at the clinic are another level of hospitality and care.", rating: 5 },
+    { name: "Ana", text: "She’s super friendly, patient, and takes the time to explain things clearly. I always felt like she truly listened and cared. The clinic is clean and well-organized, and getting appointments was easy with minimal wait times.", rating: 5 },
   ],
-  googleRating: { score: 4.9, count: 0 }, // PLACEHOLDER
+  googleRating: { score: 0, count: 0 }, // PLACEHOLDER: rating and count from the Google listing (hidden while count is 0)
   beforeAfter: [
     { id: "ba-1", title: "Skin texture", categorySlug: "skin", treatment: "SkinPen Precision Microneedling", before: img("Before"), after: img("After"), note: disclaimer },
     { id: "ba-2", title: "Skin tone", categorySlug: "skin", treatment: "Q-Switch Laser Skin Toning", before: img("Before"), after: img("After"), note: disclaimer },
@@ -348,35 +358,39 @@ const brand: BrandConfig = {
   ],
   stats: [
     { value: "14", label: "Treatments offered" },
-    { value: "00+", label: "Years of practice" }, // PLACEHOLDER
-    { value: "0,000+", label: "Consultations" },
+    { value: "4", label: "Treatment areas" },
+    { value: "1:1", label: "Doctor consultation first" },
   ],
   homeFaqs: [
-    faq("Do I need a consultation first?", "Yes. Every treatment starts with a consultation to assess suitability."),
-    faq("Are the treatments painful?", "Numbing cream and comfort measures are used where appropriate. Sensations vary by treatment."),
-    faq("How do I book?", "Use Book Consultation to message us on WhatsApp, or call the clinic."),
+    faq("Do I need a consultation before treatment?", "Yes. A consultation lets our team understand your concerns, medical history, expectations and goals before recommending suitable options."),
+    faq("How do I know which treatment is right for me?", "No single treatment suits everyone. Your doctor assesses your individual needs and recommends options based on suitability and your goals."),
+    faq("Are aesthetic treatments safe?", "Safety begins with proper assessment, appropriate treatment selection and qualified clinical care. Procedures are planned around individual suitability, with clear guidance and clinical protocols."),
+    faq("Does Eternal Radiance only focus on skin?", "No. Skin health is an important part of the practice, alongside aesthetic injectables, hair restoration, regenerative aesthetics, wellness, anti-ageing and non-surgical body contouring."),
     faq("Are results the same for everyone?", "No. Results vary from person to person."),
   ],
   seo: {
-    title: "Eternal Radiance | Doctor-led Aesthetic Clinic in Chennai",
-    description: "Doctor-led aesthetic medicine and wellness in Chennai: skin, hair transplant, fillers, Botox, microneedling and IV wellness with Dr. Sivapriya.",
+    title: "Eternal Radiance | Aesthetic Dermatology & Wellness Clinic, Chennai",
+    description: "Doctor-led aesthetic medicine and wellness in Chennai: skin health, aesthetic injectables, hair restoration, regenerative aesthetics and wellness through personalised care.",
     keywords: ["aesthetic clinic Chennai", "hair transplant Chennai", "dermal fillers Chennai"],
   },
+  // Real old WordPress URLs (from the live site's navigation). Blog post URLs are root-level slugs on the old site;
+  // add each as "/<old-slug>": "/blog/<new-slug>" once the posts are migrated.
   redirects: {
     "/hair-transplant-in-chennai": "/treatments/hair-transplant",
     "/dermal-fillers-in-chennai": "/treatments/dermal-fillers",
     "/skin-glow-glass-skin-in-chennai": "/treatments/skin-glow-glass-skin",
     "/microneedling-in-chennai": "/treatments/microneedling",
     "/instant-glow-up-facials-in-chennai": "/treatments/instant-glow-up-facials",
-    "/hair-restoration-in-chennai": "/treatments/hair-restoration-anti-hair-loss",
-    "/laser-hair-removal-in-chennai": "/treatments/laser-hair-removal",
-    "/botox-dysport-in-chennai": "/treatments/botox-dysport",
+    "/hair-restoration-anti-hair-loss-treatments-in-chennai": "/treatments/hair-restoration-anti-hair-loss",
+    "/laser-hair-removal-service-in-chennai": "/treatments/laser-hair-removal",
+    "/botox-dysport-injection-treatments-in-chennai": "/treatments/botox-dysport",
     "/iv-wellness-therapy-in-chennai": "/treatments/iv-wellness-therapy",
-    "/skinpen-microneedling-in-chennai": "/treatments/skinpen-microneedling",
-    "/o-shot-in-chennai": "/treatments/o-shot",
-    "/fat-dissolving-injections-in-chennai": "/treatments/fat-dissolving-injections",
-    "/q-switch-laser-skin-toning-in-chennai": "/treatments/q-switch-laser-skin-toning",
-    "/vampire-breast-lift-in-chennai": "/treatments/vampire-breast-lift",
+    "/skinpen-precision-microneedling": "/treatments/skinpen-microneedling",
+    "/o-shot-orgasm-shot-womens-intimate-wellness-at-eternal-radiance": "/treatments/o-shot",
+    "/fat-dissolving-injections-at-eternal-radiance": "/treatments/fat-dissolving-injections",
+    "/laser-skin-toning-with-q-switch-laser-at-eternal-radiance": "/treatments/q-switch-laser-skin-toning",
+    "/vampire-breast-lift-at-eternal-radiance-2": "/treatments/vampire-breast-lift",
+    "/services": "/treatments",
     "/about-us": "/about",
     "/contact-us": "/contact",
     "/blogs": "/blog",

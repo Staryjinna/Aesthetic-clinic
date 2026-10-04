@@ -15,11 +15,13 @@ export default function Testimonials({ items, rating }: { items: Testimonial[]; 
         <div className="text-center">
           <p className="eyebrow">Patient reviews</p>
           <h2 className="h-display mt-5">In their words</h2>
-          <p className="mt-5 flex items-center justify-center gap-3 text-sm text-muted">
-            <span className="font-display text-3xl text-primary">{rating.score.toFixed(1)}</span>
-            <Stars n={Math.round(rating.score)} />
-            {rating.count > 0 && <span>{rating.count} Google reviews</span>}
-          </p>
+          {rating.count > 0 && (
+            <p className="mt-5 flex items-center justify-center gap-3 text-sm text-muted">
+              <span className="font-display text-3xl text-primary">{rating.score.toFixed(1)}</span>
+              <Stars n={Math.round(rating.score)} />
+              <span>{rating.count} Google reviews</span>
+            </p>
+          )}
         </div>
         <div ref={track} tabIndex={0} aria-label="Testimonials" className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {items.map((t, i) => (
