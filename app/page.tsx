@@ -25,21 +25,20 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={faqSchema(brand.homeFaqs)} />
-      <section>
-        <div className="container-x grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-20">
-          <div>
-            {brand.hero.eyebrow && <p className="eyebrow">{brand.hero.eyebrow}</p>}
-            <h1 className="mt-4 text-[clamp(2.2rem,5.2vw,4rem)]">{brand.hero.headline ?? brand.tagline}</h1>
-            <p className="mt-6 max-w-lg text-lg text-muted">{brand.hero.text ?? brand.intro.text[0]}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-primary">{brand.hero.cta}</a>
-              <Link href="/treatments" className="btn btn-ghost">Explore treatments</Link>
-            </div>
-            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted">
-              {["Doctor-led care", "Consultation first", "Personalised plans"].map((t) => <li key={t} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />{t}</li>)}
-            </ul>
+      <section className="relative isolate overflow-hidden bg-ink">
+        <Img slot={brand.hero.image} priority aspect="" sizes="100vw" className="absolute inset-0 -z-10" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/10 max-sm:from-black/70 max-sm:via-black/55 max-sm:to-black/40" aria-hidden />
+        <div className="container-x flex min-h-[clamp(34rem,88vh,52rem)] flex-col justify-center py-24 text-white">
+          {brand.hero.eyebrow && <p className="eyebrow !text-white/80">{brand.hero.eyebrow}</p>}
+          <h1 className="mt-4 max-w-2xl text-[clamp(2.4rem,5.6vw,4.5rem)] !text-white">{brand.hero.headline ?? brand.tagline}</h1>
+          <p className="mt-6 max-w-lg text-lg text-white/85">{brand.hero.text ?? brand.intro.text[0]}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="btn bg-white text-ink hover:bg-surface">{brand.hero.cta}</a>
+            <Link href="/treatments" className="btn border border-white/60 text-white hover:bg-white/10">Explore treatments</Link>
           </div>
-          <Img slot={brand.hero.image} priority aspect="aspect-[4/3]" sizes="(min-width:1024px) 50vw, 100vw" className="rounded-3xl" />
+          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-white/80">
+            {["Doctor-led care", "Consultation first", "Personalised plans"].map((t) => <li key={t} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/80" aria-hidden />{t}</li>)}
+          </ul>
         </div>
       </section>
 
