@@ -10,7 +10,8 @@ export type FontKey =
   | "marcellus"
   | "manrope"
   | "playfair"
-  | "inter";
+  | "inter"
+  | "montserrat";
 
 export interface Palette {
   /** Main brand colour: wordmark, headings accents, primary buttons. Hex. */

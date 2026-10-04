@@ -78,10 +78,9 @@ export default function Header({ phone, phoneTel, categories, showPhone, hideHre
         <div className="flex shrink-0 items-center gap-3">
           {showPhone && <a href={`tel:${phoneTel}`} className="hidden text-sm text-ink hover:text-primary xl:block"><span className="text-muted">Call us at </span>{phone}</a>}
           <Link href="/community" className="btn btn-primary hidden !min-h-[2.5rem] !px-5 sm:inline-flex">Join Community</Link>
-          <button ref={btn} onClick={() => setOpen(true)} aria-expanded={open} aria-controls="site-menu"
-            className="inline-flex h-11 items-center gap-2 rounded-full border border-line bg-surface pl-4 pr-3.5 text-sm font-medium text-ink transition-colors hover:border-ink lg:hidden">
-            <span className="max-[339px]:sr-only">Menu</span>
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden><path d="M4 8h16M4 16h10" /></svg>
+          <button ref={btn} onClick={() => setOpen(true)} aria-expanded={open} aria-controls="site-menu" aria-label="Open menu"
+            className="-mr-2 flex h-11 w-11 items-center justify-center text-ink lg:hidden">
+            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden><path d="M4 7h16M4 12h16M4 17h16" /></svg>
           </button>
         </div>
       </div>
@@ -89,34 +88,33 @@ export default function Header({ phone, phoneTel, categories, showPhone, hideHre
 
     {/* Rendered outside <header>: its backdrop-blur would otherwise become the containing block for this fixed overlay. */}
     <div id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden={!open}
-        className={`fixed inset-0 z-50 overflow-y-auto bg-paper transition-opacity duration-200 lg:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
-        {...(!open ? { inert: true } : {})}>
-        <div className="container-x flex h-[4.25rem] items-center justify-between gap-3">
-          <Wordmark />
-          <button onClick={() => { setOpen(false); btn.current?.focus(); }} className="inline-flex h-11 items-center gap-2 rounded-full border border-line bg-surface pl-4 pr-3.5 text-sm font-medium">
-            <span className="max-[339px]:sr-only">Close</span>
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden><path d="M6 6l12 12M18 6L6 18" /></svg>
-          </button>
-        </div>
-        <nav aria-label="Mobile" className="container-x pb-12 pt-4">
-          <ul className="space-y-2">
-            {nav.map((n) => (
-              <li key={n.href}>
-                <Link href={n.href} className={`flex min-h-[3.25rem] items-center justify-between rounded-2xl px-5 text-lg ${isActive(n.href) ? "bg-ink text-white" : "bg-surface"}`}>{n.label}<span aria-hidden className="opacity-50">→</span></Link>
-                {"dropdown" in n && (
-                  <ul className="mt-2 flex flex-wrap gap-2 pl-2">
-                    {categories.map((c) => <li key={c.slug}><Link href={`/treatments#${c.slug}`} className="chip">{c.title}</Link></li>)}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8 flex flex-col gap-3">
-            <Link href="/community" className="btn btn-primary">Join Community</Link>
-            {showPhone && <a href={`tel:${phoneTel}`} className="btn btn-ghost">Call {phone}</a>}
-          </div>
-        </nav>
+      className={`fixed inset-0 z-50 overflow-y-auto bg-white transition-opacity duration-200 lg:hidden ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      {...(!open ? { inert: true } : {})}>
+      <div className="container-x flex h-[4.25rem] items-center justify-between gap-3">
+        <Wordmark />
+        <button onClick={() => { setOpen(false); btn.current?.focus(); }} aria-label="Close menu" className="-mr-2 flex h-11 w-11 items-center justify-center text-ink">
+          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
       </div>
+      <nav aria-label="Mobile" className="container-x pb-12 pt-2">
+        <ul className="divide-y divide-line border-y border-line">
+          {nav.map((n) => (
+            <li key={n.href}>
+              <Link href={n.href} aria-current={isActive(n.href) ? "page" : undefined} className={`flex min-h-[3.5rem] items-center text-lg ${isActive(n.href) ? "font-medium text-primary" : "text-ink"}`}>{n.label}</Link>
+              {"dropdown" in n && (
+                <ul className="-mt-1 mb-3 space-y-0.5 border-l border-line pl-4">
+                  {categories.map((c) => <li key={c.slug}><Link href={`/treatments#${c.slug}`} className="block py-2 text-base text-muted hover:text-ink">{c.title}</Link></li>)}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8 flex flex-col gap-3">
+          <Link href="/community" className="btn btn-primary">Join Community</Link>
+          {showPhone && <a href={`tel:${phoneTel}`} className="btn btn-ghost">Call {phone}</a>}
+        </div>
+      </nav>
+    </div>
     </>
   );
 }

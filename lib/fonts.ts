@@ -5,6 +5,7 @@ import {
   Manrope,
   Playfair_Display,
   Inter,
+  Montserrat,
 } from "next/font/google";
 import type { FontKey } from "@/brands/types";
 import { brand } from "./brand";
@@ -18,8 +19,10 @@ const manrope = Manrope({ subsets: ["latin"], weight: ["200", "300", "400", "500
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "500"], display: "swap" });
 const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500"], display: "swap" });
 
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600"], display: "swap" });
+
 const map: Record<FontKey, { className: string; style: { fontFamily: string } }> = {
-  cormorant, jost, marcellus, manrope, playfair, inter,
+  cormorant, jost, marcellus, manrope, playfair, inter, montserrat,
 };
 
 export const displayFont = map[brand.fonts.display];

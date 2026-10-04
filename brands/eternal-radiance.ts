@@ -280,7 +280,7 @@ const brand: BrandConfig = {
     muted: "#7A6A64",
     line: "#E9E5E1",
   },
-  fonts: { display: "manrope", body: "manrope" },
+  fonts: { display: "montserrat", body: "montserrat" },
   siteUrl: "https://eternalradiance.in",
   phone: "+91 00000 00000", // PLACEHOLDER: not on the home page; take from the Contact Us page / Google listing
   phoneTel: "+910000000000", // PLACEHOLDER

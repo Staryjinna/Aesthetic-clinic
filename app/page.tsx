@@ -25,7 +25,7 @@ export default function HomePage() {
         <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-black/30 to-transparent" aria-hidden />
         <div className="container-x flex min-h-[clamp(32rem,86vh,50rem)] flex-col justify-center py-24 text-white [text-shadow:0_1px_2px_rgba(0,0,0,.35),0_4px_24px_rgba(0,0,0,.45)]">
           {brand.hero.eyebrow && <p className="eyebrow !text-white">{brand.hero.eyebrow}</p>}
-          <h1 className="mt-4 max-w-2xl text-[clamp(2.3rem,5.4vw,4.4rem)] !text-white">{brand.hero.headline ?? brand.tagline}</h1>
+          <h1 className="mt-4 max-w-2xl text-[clamp(2rem,4.6vw,3.8rem)] font-semibold !text-white">{brand.hero.headline ?? brand.tagline}</h1>
           <p className="mt-6 max-w-lg text-lg text-white">{brand.hero.text ?? brand.intro.text[0]}</p>
           <div className="mt-8 flex flex-col gap-3 [text-shadow:none] sm:flex-row">
             <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="btn bg-white text-ink shadow-lg hover:bg-surface">{brand.hero.cta}</a>
