@@ -147,6 +147,8 @@ export interface BrandConfig {
   intro: { eyebrow: string; heading: string; text: string[] };
   /** Wordmark shown in header/hero if there is no raster logo. */
   wordmark: { line1: string; line2?: string };
+  /** Optional emblem shown to the left of the wordmark (header, footer). */
+  mark?: { src: string; width: number; height: number };
   logo: string; // path under /public, e.g. /brands/adyar-hydra/logo.svg
   favicon: string;
   ogImage?: string;

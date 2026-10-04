@@ -265,10 +265,10 @@ const brand: BrandConfig = {
     ],
   },
   wordmark: { line1: "ETERNAL", line2: "RADIANCE" },
-  // PLACEHOLDER: the real logo (https://eternalradiance.in/wp-content/uploads/2025/04/EternalRadianceLogo.png)
-  // could not be downloaded (bot challenge). Save it as public/brands/eternal-radiance/logo.png and point this path to it.
-  logo: "/brands/eternal-radiance/logo.svg",
-  favicon: "/brands/eternal-radiance/favicon.svg",
+  // The full logo file could not be downloaded (bot challenge); the supplied emblem is used with a text wordmark.
+  mark: { src: "/brands/eternal-radiance/logo-mark.png", width: 76, height: 90 }, // crown "ER" emblem supplied by the client
+  logo: "/brands/eternal-radiance/logo-mark.png",
+  favicon: "/brands/eternal-radiance/logo-mark.png",
   palette: {
     // Derived from the live site's own palette: copper #D0936B and cream #FDEDE3.
     // The copper is darkened to #A0643A for accent text so it keeps 4.5:1 contrast on the page background.
