@@ -60,10 +60,10 @@ Changing the value needs a redeploy. Each brand's `siteUrl` drives canonical URL
 
 **Eternal Radiance** (search `PLACEHOLDER` in `brands/eternal-radiance.ts`):
 - Logo (`EternalRadianceLogo.png` could not be downloaded; a text wordmark is used) and more clinic photos (only the reception photo exists; treatment, doctor, team and gallery photos are missing)
-- Phone, WhatsApp number (booking buttons use a dummy number until set), email, street address and PIN, geo coordinates, opening hours, exact Google Maps embed URL
+- Phone, WhatsApp number (booking buttons use a dummy number until set), email, opening hours, exact Google Maps embed URL (address and PIN are now set)
 - Dr. Sivapriya: qualifications, registration number, bio, photo; team members; clinic timeline
 - Google rating and review count (rating row hidden while count is 0)
-- Instagram video review URLs
+- Instagram video reviews: 4 reels added; add each person's name and treatment
 - Treatment descriptions are neutral drafts and need the doctor's approval
 - Reviews copied from the live site: confirm consent and advertising-rule suitability
 - Blog: 3 sample posts need clinical review; old blog URLs are not yet redirected

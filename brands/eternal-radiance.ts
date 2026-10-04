@@ -286,7 +286,7 @@ const brand: BrandConfig = {
   phoneTel: "+910000000000", // PLACEHOLDER
   whatsapp: "910000000000", // PLACEHOLDER: booking buttons point here until replaced
   email: "hello@eternalradiance.in", // PLACEHOLDER: unconfirmed
-  address: { lines: ["Clinic address to be confirmed"], city: "Chennai", state: "Tamil Nadu", postalCode: "600000", country: "IN" }, // PLACEHOLDER street and PIN
+  address: { lines: ["2nd Floor, Flat B, 7A, Shree Appartments", "Haddows Lane, opposite Shastri Bhavan", "Nungambakkam"], city: "Chennai", state: "Tamil Nadu", postalCode: "600006", country: "IN" }, // from the client
   // Name + coordinates taken from the Google Maps link supplied by the client (viewport of the clinic photo).
   // Confirm the pin, then replace with the exact "Share > Embed a map" URL from the listing.
   mapEmbedUrl: "https://www.google.com/maps?q=Eternal+Radiance+Skin,+Hair+and+Aesthetics&ll=13.065191,80.2478704&z=16&output=embed",
@@ -351,7 +351,13 @@ const brand: BrandConfig = {
     { name: "Gokila Kumar", text: "Dr. Sivapriya has been an absolute sweetheart. She understood my concerns really well, worked on my skin goals. She prioritizes holistic lifestyle management rather than tonnes of dermatology procedures. The staff at the clinic are another level of hospitality and care.", rating: 5 },
     { name: "Ana", text: "She’s super friendly, patient, and takes the time to explain things clearly. I always felt like she truly listened and cared. The clinic is clean and well-organized, and getting appointments was easy with minimal wait times.", rating: 5 },
   ],
-  videoReviews: [], // PLACEHOLDER: add { name, instagramUrl, treatment } for each Instagram reel
+  // Instagram reels supplied by the client. Add the person's name / treatment when known.
+  videoReviews: [
+    { name: "Patient video review", instagramUrl: "https://www.instagram.com/reel/DVaUh7NDJhs/" },
+    { name: "Patient video review", instagramUrl: "https://www.instagram.com/reel/DQtvUajAe1U/" },
+    { name: "Patient video review", instagramUrl: "https://www.instagram.com/reel/DP58GZVE4tD/" },
+    { name: "Patient video review", instagramUrl: "https://www.instagram.com/reel/DIoIdbHylVl/" },
+  ],
   googleRating: { score: 0, count: 0 }, // PLACEHOLDER: rating and count from the Google listing (hidden while count is 0)
   gallery: [
     // Source: Google Maps contributor photo of the clinic reception (confirm the clinic holds the rights / replace with the original file).
