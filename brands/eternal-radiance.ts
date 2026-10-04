@@ -274,13 +274,13 @@ const brand: BrandConfig = {
     // The copper is darkened to #A0643A for accent text so it keeps 4.5:1 contrast on the page background.
     primary: "#8A5A4B",
     accent: "#A0643A",
-    background: "#FFFDFB",
-    surface: "#FDEDE3",
-    text: "#2D2422",
+    background: "#FFFFFF",
+    surface: "#F8F5F2",
+    text: "#1C1917",
     muted: "#7A6A64",
-    line: "#EADFD8",
+    line: "#E9E5E1",
   },
-  fonts: { display: "cormorant", body: "jost" },
+  fonts: { display: "manrope", body: "manrope" },
   siteUrl: "https://eternalradiance.in",
   phone: "+91 00000 00000", // PLACEHOLDER: not on the home page; take from the Contact Us page / Google listing
   phoneTel: "+910000000000", // PLACEHOLDER
@@ -298,7 +298,7 @@ const brand: BrandConfig = {
     instagram: "https://www.instagram.com/eternalradiance_clinic/",
     facebook: "https://www.facebook.com/people/Eternal-Radiance-Clinic/61560765166350/",
   },
-  hero: { eyebrow: "Skin Health · Injectables · Hair Restoration · Wellness", cta: "Book Consultation", image: img("Clinic hero") },
+  hero: { eyebrow: "Aesthetic dermatology & wellness · Chennai", headline: "Skin, hair and wellness care, led by a doctor", text: "A personalised plan for every patient, beginning with a consultation rather than a predetermined procedure.", cta: "Book Consultation", image: img("Clinic hero") },
   doctors: [
     {
       name: "Dr. Sivapriya",
@@ -350,6 +350,7 @@ const brand: BrandConfig = {
     { name: "Gokila Kumar", text: "Dr. Sivapriya has been an absolute sweetheart. She understood my concerns really well, worked on my skin goals. She prioritizes holistic lifestyle management rather than tonnes of dermatology procedures. The staff at the clinic are another level of hospitality and care.", rating: 5 },
     { name: "Ana", text: "She’s super friendly, patient, and takes the time to explain things clearly. I always felt like she truly listened and cared. The clinic is clean and well-organized, and getting appointments was easy with minimal wait times.", rating: 5 },
   ],
+  videoReviews: [], // PLACEHOLDER: add { name, instagramUrl, treatment } for each Instagram reel
   googleRating: { score: 0, count: 0 }, // PLACEHOLDER: rating and count from the Google listing (hidden while count is 0)
   beforeAfter: [
     { id: "ba-1", title: "Skin texture", categorySlug: "skin", treatment: "SkinPen Precision Microneedling", before: img("Before"), after: img("After"), note: disclaimer },

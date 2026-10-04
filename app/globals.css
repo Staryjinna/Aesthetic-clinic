@@ -4,31 +4,32 @@
 
 @layer base {
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    @apply bg-paper text-ink font-sans font-light antialiased;
-    font-size: 1.0625rem;
-    line-height: 1.75;
-  }
-  h1, h2, h3, h4 { @apply font-display font-normal text-ink; line-height: 1.15; letter-spacing: 0.01em; }
-  :focus-visible { outline: 2px solid rgb(var(--c-primary)); outline-offset: 3px; border-radius: 4px; }
-  ::selection { background: rgb(var(--c-accent) / 0.3); }
+  body { @apply bg-paper text-ink font-sans antialiased; font-size: 1rem; line-height: 1.7; }
+  h1, h2, h3, h4 { @apply font-display font-medium text-ink; line-height: 1.15; letter-spacing: -0.01em; }
+  :focus-visible { outline: 2px solid rgb(var(--c-primary)); outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: rgb(var(--c-accent) / 0.25); }
 }
 
 @layer components {
   .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
-  .section { @apply py-20 sm:py-28; }
-  .eyebrow { @apply text-[0.72rem] uppercase text-accent font-normal; letter-spacing: 0.28em; }
-  .h-display { @apply font-display; font-size: clamp(2rem, 4.2vw, 3.25rem); }
-  .btn {
-    @apply inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[0.8rem] uppercase font-normal transition-colors duration-300;
-    letter-spacing: 0.2em;
-  }
+  .section { @apply py-16 sm:py-24; }
+  .eyebrow { @apply text-xs font-medium uppercase text-accent; letter-spacing: 0.18em; }
+  .h-display { font-size: clamp(1.9rem, 4vw, 3rem); }
+  .btn { @apply inline-flex min-h-[2.75rem] items-center justify-center rounded-full px-7 py-3 text-sm font-medium transition-colors duration-200; }
   .btn-primary { @apply bg-primary text-white hover:bg-ink; }
-  .btn-ghost { @apply border border-primary/40 text-primary hover:bg-primary hover:text-white; }
-  .card { @apply rounded-card bg-surface overflow-hidden; }
+  .btn-ghost { @apply border border-line bg-paper text-ink hover:border-ink; }
+  .chip { @apply inline-flex min-h-[2.5rem] items-center rounded-full border border-line px-4 text-sm text-ink transition-colors hover:border-ink; }
+  .chip[aria-pressed="true"], .chip[aria-current="true"] { @apply border-ink bg-ink text-white; }
+  .card { @apply overflow-hidden rounded-2xl border border-line bg-paper; }
+  .prose-clinic { @apply text-ink; }
+  .prose-clinic h2 { @apply mt-10 mb-3 text-2xl; }
+  .prose-clinic p { @apply mt-4 text-muted; }
+  .prose-clinic ul { @apply mt-4 list-disc space-y-1.5 pl-5 text-muted; }
+  .prose-clinic ol { @apply mt-4 list-decimal space-y-1.5 pl-5 text-muted; }
+  .prose-clinic em { @apply text-sm; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }

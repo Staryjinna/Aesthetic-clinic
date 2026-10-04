@@ -117,6 +117,14 @@ export interface BeforeAfter {
   note?: string; // "Results vary from person to person."
 }
 
+/** Instagram reel/post shown as a video review. Send the URL, e.g. https://www.instagram.com/reel/XXXX/ */
+export interface VideoReview {
+  name: string;
+  instagramUrl: string;
+  treatment?: string;
+  caption?: string;
+}
+
 export interface HomeStat {
   value: string;
   label: string;
@@ -151,7 +159,7 @@ export interface BrandConfig {
   mapEmbedUrl: string;
   hours: OpeningHours[];
   social: SocialLinks;
-  hero: { eyebrow?: string; cta: string; image: ImageSlot };
+  hero: { eyebrow?: string; headline?: string; text?: string; cta: string; image: ImageSlot };
   doctors: Doctor[];
   team: TeamMember[];
   about: {
@@ -164,6 +172,8 @@ export interface BrandConfig {
   categories: TreatmentCategory[];
   why: WhyPoint[];
   testimonials: Testimonial[];
+  /** Instagram video reviews. Empty array shows a "watch on Instagram" prompt instead. */
+  videoReviews: VideoReview[];
   googleRating: { score: number; count: number; url?: string };
   beforeAfter: BeforeAfter[];
   stats: HomeStat[];

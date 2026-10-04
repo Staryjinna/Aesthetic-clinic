@@ -331,6 +331,7 @@ const brand: BrandConfig = {
     { name: "Reviewer Name", text: "Placeholder review. The team explained every step clearly.", rating: 5, treatment: "Microneedling", when: "2 months ago" },
     { name: "Reviewer Name", text: "Placeholder review. A calm clinic and a helpful consultation.", rating: 5, treatment: "Consultation", when: "3 months ago" },
   ],
+  videoReviews: [], // PLACEHOLDER: add { name, instagramUrl, treatment } for each Instagram reel
   googleRating: { score: 4.9, count: 0 }, // PLACEHOLDER — set real score & count
   beforeAfter: [
     { id: "ba-1", title: "Skin texture", categorySlug: "skin-rejuvenation", treatment: "Microneedling", before: img("Before"), after: img("After"), note: commonDisclaimer },

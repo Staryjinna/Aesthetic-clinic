@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useRef, useState } from "react";
-import Img from "../Img";
+import Img from "./Img";
 import type { BeforeAfter } from "@/brands/types";
 
 export default function BeforeAfterSlider({ pair }: { pair: BeforeAfter }) {
@@ -24,12 +24,12 @@ export default function BeforeAfterSlider({ pair }: { pair: BeforeAfter }) {
         onPointerUp={() => (dragging.current = false)}
         onPointerCancel={() => (dragging.current = false)}
       >
-        <Img slot={pair.after} aspect="" tone={2} className="absolute inset-0" sizes="(min-width:1024px) 900px, 100vw" />
+        <Img slot={pair.after} aspect="" className="absolute inset-0" sizes="(min-width:1024px) 900px, 100vw" />
         <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-          <Img slot={pair.before} aspect="" tone={3} className="absolute inset-0" sizes="(min-width:1024px) 900px, 100vw" />
+          <Img slot={pair.before} aspect="" className="absolute inset-0" sizes="(min-width:1024px) 900px, 100vw" />
         </div>
-        <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-paper/85 px-3 py-1 text-[0.65rem] uppercase tracking-[0.2em]">Before</span>
-        <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-paper/85 px-3 py-1 text-[0.65rem] uppercase tracking-[0.2em]">After</span>
+        <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-paper/90 px-3 py-1 text-xs">Before</span>
+        <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-paper/90 px-3 py-1 text-xs">After</span>
         <div className="pointer-events-none absolute inset-y-0 w-px bg-white" style={{ left: `${pos}%` }}>
           <div
             role="slider" tabIndex={0} aria-label={`Compare before and after: ${pair.title}`}

@@ -1,18 +1,12 @@
 import { brand } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
-export default function Wordmark({ className, large }: { className?: string; large?: boolean }) {
+export default function Wordmark({ className, light }: { className?: string; light?: boolean }) {
   const { line1, line2 } = brand.wordmark;
   return (
-    <span className={cn("inline-flex flex-col items-center text-primary leading-none", className)}>
-      <span className={cn("font-display tracking-wordmark", large ? "text-3xl sm:text-5xl md:text-6xl" : "text-lg sm:text-xl")} style={{ marginRight: "-0.32em" }}>
-        {line1}
-      </span>
-      {line2 && (
-        <span className={cn("mt-2 font-sans text-accent uppercase", large ? "text-xs sm:text-sm tracking-[0.5em]" : "text-[0.6rem] tracking-[0.5em]")} style={{ marginRight: "-0.5em" }}>
-          {line2}
-        </span>
-      )}
+    <span className={cn("inline-flex flex-col items-start leading-none", light ? "text-white" : "text-primary", className)}>
+      <span className="font-display text-xl font-semibold tracking-[0.2em] sm:text-2xl">{line1}</span>
+      {line2 && <span className={cn("mt-1.5 text-[0.62rem] font-medium uppercase tracking-[0.5em]", light ? "text-white/70" : "text-accent")}>{line2}</span>}
     </span>
   );
 }
